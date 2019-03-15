@@ -14,8 +14,10 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import frc.robot.subsystems.Barrel;
 import frc.robot.subsystems.DriveTrainMain;
 import frc.robot.subsystems.Lifter;
@@ -30,7 +32,8 @@ import frc.robot.subsystems.Shooter;
 public class RobotMap {
   public static SpeedController driveMotorLeft;
   public static SpeedController driveMotorRight;
-  public static SpeedController barrelMotor;
+	public static SpeedController barrelMotor;
+	public static DoubleSolenoid liftingSolenoid;
 	public static Solenoid liftUp;
 	public static Solenoid liftDown;
 	public static Relay relayShoot;
@@ -49,17 +52,16 @@ public class RobotMap {
     driveMotorLeft = new Spark(1);
     driveMotorRight = new Spark(0);
     barrelMotor = new Spark(2);
-		
+	
 		liftUp = new Solenoid(1);
 		liftDown = new Solenoid(0);
 		relayShoot = new Relay(0);
-		
+		//liftingSolenoid =  new DoubleSolenoid(1, 0);
 		//encoder = new Encoder(8,9,false,Encoder.EncodingType.k4X);
-		encoder1 = new DigitalInput(7);
-		encoder2 = new DigitalInput(8);
-    //limitSwitch = new DigitalInput(0);
-    //counter = new Counter(limitSwitch);
-		
+		// encoder1 = new DigitalInput(7);
+		// encoder2 = new DigitalInput(8);
+    limitSwitch = new DigitalInput(0);
+
 		drivetrain = new DriveTrainMain();
 		barrel = new Barrel();
 		shooter = new Shooter();

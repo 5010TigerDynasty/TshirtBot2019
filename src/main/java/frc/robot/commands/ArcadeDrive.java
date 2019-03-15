@@ -14,6 +14,8 @@ import frc.robot.RobotMap;
 public class ArcadeDrive extends Command {
   private double leftInputPower;
   private double rightInputPower;
+  private double straightValue;
+  private double turnValue;
   
   public ArcadeDrive() {
     requires(RobotMap.drivetrain);
@@ -29,10 +31,12 @@ public class ArcadeDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    leftInputPower = Robot.m_oi.joyDriver.getRawAxis(1);
-		rightInputPower = Robot.m_oi.joyDriver.getRawAxis(5);
-
-		RobotMap.drivetrain.drive(leftInputPower, rightInputPower);
+    leftInputPower = -Robot.m_oi.joyDriver.getRawAxis(4);
+		rightInputPower = Robot.m_oi.joyDriver.getRawAxis(1);
+    straightValue = leftInputPower + rightInputPower;
+		turnValue = leftInputPower - rightInputPower;
+    RobotMap.drivetrain.drive(straightValue, turnValue);
+    System.out.println(RobotMap.limitSwitch.get());
   }
 
   // Make this return true when this Command no longer needs to run execute()

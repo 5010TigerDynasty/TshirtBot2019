@@ -44,7 +44,7 @@ public class RotateBarrelTime extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    RobotMap.barrel.stop();
+    
   }
 
   // Called when another command which requires one or more of the same

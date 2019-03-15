@@ -7,6 +7,10 @@
 
 package frc.robot.subsystems;
 
+
+
+
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -14,24 +18,32 @@ import frc.robot.RobotMap;
  * Add your docs here.
  */
 public class Lifter extends Subsystem {
+
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
+ 
+  
+   //if doesn't work, put in the liftup and down commands
+  
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
+     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-public void liftUp(){
-  RobotMap.liftUp.set(true);
-}
+  public void liftUp() {
+   RobotMap.liftUp.set(true);
+  }
 
-public void liftDown() {
+
+  public void liftDown() {
+
   RobotMap.liftDown.set(true);
+
 }
 
 public void stop() {
-  RobotMap.liftUp.set(false);
   RobotMap.liftDown.set(false);
+  RobotMap.liftUp.set(false);
+
 }
 }

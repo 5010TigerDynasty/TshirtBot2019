@@ -23,23 +23,20 @@ public class Barrel extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
   public void spinLeft(){
-    RobotMap.barrelMotor.set(.1);
+    RobotMap.barrelMotor.set(.27);
   }
   public void spinRight(){
     RobotMap.barrelMotor.set(-.1);
   }
-  public double getEncoderValue() {
-		return RobotMap.encoder.getRaw();
-	}
+  public void stop() {
+    RobotMap.barrelMotor.set(0);
+  }
 
 	public static boolean switchClosed() {
-		return RobotMap.counter.get() > 0;
+		return RobotMap.counter.get() == 0;
 	}
 
-	public void switchOpen() {
-  //return RobotMap.counter.get() == 0;
+	public boolean switchOpen() {
+    return RobotMap.counter.get() > 0;
 	}
-  public void stop() {
-  RobotMap.barrelMotor.set(0);
-  }
 }

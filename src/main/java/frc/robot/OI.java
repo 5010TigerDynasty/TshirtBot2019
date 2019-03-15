@@ -13,8 +13,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.BarrelStop;
 import frc.robot.commands.LiftDown;
 import frc.robot.commands.LiftUp;
-import frc.robot.commands.RotateBarrelTime;
+import frc.robot.commands.RotateBarrelLimitSwitch;
 import frc.robot.commands.Shoot;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -27,14 +28,14 @@ public class OI {
 	private JoystickButton buttonB = new JoystickButton(joyDriver, 2);
 	private JoystickButton buttonX = new JoystickButton(joyDriver, 3);
 	private JoystickButton buttonY = new JoystickButton(joyDriver, 4);
-	private JoystickButton buttonRB = new JoystickButton(joyDriver, 5);
+	private JoystickButton buttonRB = new JoystickButton(joyDriver, 6);
 
 
  public OI() {
-    buttonX.whileHeld(new LiftDown());
+   	    buttonX.whileHeld(new LiftDown());
 		buttonY.whileHeld(new LiftUp());
 		buttonRB.whenPressed(new Shoot());
-		buttonA.whenPressed(new RotateBarrelTime());
+		buttonA.whenPressed(new RotateBarrelLimitSwitch());
 		buttonB.whenPressed(new BarrelStop());
   }
 }

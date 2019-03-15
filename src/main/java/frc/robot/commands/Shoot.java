@@ -26,7 +26,6 @@ public class Shoot extends Command {
   @Override
   protected void initialize() {
     startTime = System.currentTimeMillis();
-    //RobotMap.shooter.shoot();
     targetTime = SmartDashboard.getNumber("shoot time", 100);
     
   }
@@ -43,9 +42,10 @@ public class Shoot extends Command {
     currentTime = System.currentTimeMillis();
     if(currentTime - startTime > targetTime){
       return true;
-    }
-    
+    }else{
       return false;
+    }
+ 
   }
 
   // Called once after isFinished returns true

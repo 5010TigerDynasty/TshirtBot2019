@@ -7,25 +7,28 @@
 
 package frc.robot.commands;
 
+
+
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMap;
 
 public class LiftDown extends Command {
+
   public LiftDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(RobotMap.lifter);
   }
-
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
     RobotMap.lifter.liftDown();
   }
-
+  
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    RobotMap.lifter.liftDown();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -44,5 +47,6 @@ public class LiftDown extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
